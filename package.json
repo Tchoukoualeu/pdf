@@ -2,7 +2,7 @@
   "name": "pdfexperience",
   "private": true,
   "version": "1.0.0",
-  "description": "Split a PDF into one file per page in the browser.",
+  "description": "Split a PDF online free into one file per page in the browser.",
   "type": "module",
   "scripts": {
     "dev": "vite",

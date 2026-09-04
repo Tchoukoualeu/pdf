@@ -1,0 +1,17 @@
+{
+  "name": "PDF Experience",
+  "short_name": "PDF Split",
+  "description": "Split a PDF online free into separate files, one page per PDF. Private and in-browser.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F4EFE4",
+  "theme_color": "#F4EFE4",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

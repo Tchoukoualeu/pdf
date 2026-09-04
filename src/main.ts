@@ -184,7 +184,9 @@ function reset(): void {
 }
 
 async function loadSample(): Promise<void> {
-  const response = await fetch("/sample-3-pages.pdf");
+  const response = await fetch(
+    `${import.meta.env.BASE_URL}sample-3-pages.pdf`,
+  );
   if (!response.ok) {
     showStatus("Could not load the sample PDF.", "error");
     return;
