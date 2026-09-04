@@ -1,6 +1,6 @@
 {
-  "name": "PDF Experience",
-  "short_name": "PDF Split",
+  "name": "Split PDF in 2",
+  "short_name": "Split in 2",
   "description": "Split a PDF into 2 files online free. Private and in-browser — nothing is uploaded.",
   "start_url": ".",
   "display": "standalone",

@@ -1,8 +1,8 @@
 {
-  "name": "pdfexperience",
+  "name": "splitpdfin2",
   "private": true,
   "version": "1.0.0",
-  "description": "Split a PDF into 2 files online free in the browser.",
+  "description": "Split a PDF into 2 files online free in the browser — splitpdfin2.com.",
   "type": "module",
   "scripts": {
     "dev": "vite",

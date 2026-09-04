@@ -1,6 +1,6 @@
-# PDF Experience
+# Split PDF in 2
 
-Split a PDF into 2 files online free. A 2-page document becomes 2 PDFs.
+Split a PDF into 2 files online free at [splitpdfin2.com](https://splitpdfin2.com). A 2-page document becomes 2 PDFs.
 
 Everything runs in the browser. Files never leave this device.
 
