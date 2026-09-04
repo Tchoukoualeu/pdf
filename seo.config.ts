@@ -1,5 +1,5 @@
 export const SITE_NAME = "PDF Experience";
-export const SITE_URL = "https://tchoukoualeu.github.io/pdf";
-export const SITE_TITLE = "Split PDF Online Free — One File Per Page";
+export const SITE_URL = "https://splitpdfin2.com";
+export const SITE_TITLE = "Split PDF Into 2 Files Online Free — Private Browser Tool";
 export const SITE_DESCRIPTION =
-  "Split a PDF online free into separate files, one page per PDF. Private and in-browser — a 3-page document becomes 3 PDFs. Nothing is uploaded.";
+  "Split a PDF into 2 files online free. Drop a 2-page PDF and download each page as its own file. Private and in-browser — nothing is uploaded.";

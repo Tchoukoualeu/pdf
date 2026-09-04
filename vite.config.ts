@@ -16,6 +16,7 @@ writeFileSync(
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     "  <url>",
     `    <loc>${origin}/</loc>`,
+    `    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>`,
     "    <changefreq>weekly</changefreq>",
     "    <priority>1.0</priority>",
     "  </url>",
@@ -24,9 +25,9 @@ writeFileSync(
   ].join("\n"),
 );
 
-export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/pdf/" : "/",
+export default defineConfig({
+  base: "/",
   test: {
     environment: "node",
   },
-}));
+});

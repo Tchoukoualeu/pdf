@@ -1,7 +1,7 @@
 {
   "name": "PDF Experience",
   "short_name": "PDF Split",
-  "description": "Split a PDF online free into separate files, one page per PDF. Private and in-browser.",
+  "description": "Split a PDF into 2 files online free. Private and in-browser — nothing is uploaded.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#F4EFE4",

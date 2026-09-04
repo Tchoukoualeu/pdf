@@ -1,6 +1,6 @@
 # PDF Experience
 
-Split a PDF into one file per page. A 3-page document becomes 3 PDFs.
+Split a PDF into 2 files online free. A 2-page document becomes 2 PDFs.
 
 Everything runs in the browser. Files never leave this device.
 
