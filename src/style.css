@@ -14,11 +14,12 @@
   /* Brand palette: #3368a0 deep blue, #66a3bf soft blue, #c8dfdb mint,
      #f2efe7 paper. Everything below is derived from these four. */
 
-  /* Surfaces */
-  --paper: #f2efe7;
-  --paper-deep: #e5e7de;
-  --sheet: #fbfaf5;
-  --sheet-soft: #f5f4ed;
+  /* Surfaces, light to dark: white page, cream panels, white cards on top */
+  --paper: #ffffff;
+  --paper-deep: #e9ece7;
+  --sheet: #f7f5ef;
+  --sheet-soft: #f2efe7;
+  --card: #ffffff;
 
   /* A page of paper — stays light in both themes */
   --doc: #fdfdfa;
@@ -53,9 +54,9 @@
   --danger-tint: #f6e6e2;
 
   /* Atmosphere */
-  --glow-a: #fbfaf3;
+  --glow-a: #f7f4eb;
   --glow-b: #d5e7e4;
-  --grain-opacity: 0.14;
+  --grain-opacity: 0.08;
   --grain-filter: none;
 
   /* Elevation */
@@ -108,6 +109,7 @@
     --paper-deep: #16232e;
     --sheet: #182734;
     --sheet-soft: #131f29;
+    --card: #1e2d3a;
 
     --doc: #e4ece9;
     --doc-line: #b3c6c3;
@@ -409,10 +411,10 @@ p {
   gap: 8px;
   margin: 0;
   padding: 7px 14px 7px 12px;
-  border: 1px solid var(--rule);
+  border: 1px solid color-mix(in srgb, var(--mark-soft) 30%, var(--rule));
   border-radius: var(--r-pill);
-  background: color-mix(in srgb, var(--sheet) 70%, transparent);
-  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--mark-tint) 65%, var(--sheet));
+  color: var(--mark-deep);
   font-size: var(--text-xs);
   font-weight: 500;
   white-space: nowrap;
@@ -913,7 +915,7 @@ p {
   padding: clamp(20px, 3vw, 30px);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--sheet) 55%, transparent);
+  background: var(--sheet-soft);
   box-shadow: var(--shadow-md);
 }
 
@@ -973,7 +975,7 @@ p {
   padding: 12px;
   border: 1px solid var(--rule);
   border-radius: var(--r-lg);
-  background: var(--sheet);
+  background: var(--card);
   box-shadow: var(--shadow-sm);
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
     border-color var(--dur) var(--ease);
@@ -991,8 +993,11 @@ p {
   aspect-ratio: 3 / 4;
   padding: 10px;
   border-radius: var(--r-sm);
-  background:
-    linear-gradient(180deg, var(--paper-deep) 0%, var(--paper) 100%);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--paper-deep) 80%, var(--card)) 0%,
+    var(--paper-deep) 100%
+  );
   overflow: hidden;
   color: var(--ink-faint);
   font-family: var(--serif);
@@ -1082,9 +1087,9 @@ p {
   display: grid;
   gap: 10px;
   padding: clamp(20px, 2.4vw, 28px);
-  border: 1px solid var(--rule);
+  border: 1px solid color-mix(in srgb, var(--mark-soft) 22%, var(--rule));
   border-radius: var(--r-lg);
-  background: color-mix(in srgb, var(--sheet) 72%, transparent);
+  background: color-mix(in srgb, var(--mark-tint) 38%, var(--sheet));
   box-shadow: var(--shadow-xs);
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
@@ -1101,7 +1106,7 @@ p {
   height: 40px;
   margin-bottom: 4px;
   border-radius: var(--r-md);
-  background: var(--mark-tint);
+  background: color-mix(in srgb, var(--mark-soft) 26%, var(--sheet));
   color: var(--mark);
 }
 
