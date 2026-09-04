@@ -563,8 +563,13 @@ p {
 
 /* 6. Hero ------------------------------------------------------------------ */
 
+.landing {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  padding: clamp(36px, 5.5vw, 80px) 0 clamp(24px, 3.5vw, 40px);
+}
+
 .hero {
-  padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 56px);
   max-width: 46rem;
 }
 
@@ -618,6 +623,34 @@ p {
   background: currentColor;
   -webkit-mask: var(--icon-check) center / contain no-repeat;
   mask: var(--icon-check) center / contain no-repeat;
+}
+
+@media (min-width: 900px) {
+  .landing {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 1fr);
+    gap: clamp(36px, 5vw, 64px);
+    align-items: center;
+  }
+
+  .hero {
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 3vw + 1rem, 3.55rem);
+  }
+
+  .landing .dropzone {
+    min-height: clamp(280px, 32vw, 380px);
+    gap: 18px;
+    padding: clamp(24px, 3vw, 40px) 24px;
+  }
+
+  /* After a split, results need the full row. */
+  .landing:has(#dropzone[hidden]) {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
 }
 
 /* 7. Splitter -------------------------------------------------------------- */
