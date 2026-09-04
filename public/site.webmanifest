@@ -4,8 +4,8 @@
   "description": "Split a PDF into 2 files online free. Private and in-browser — nothing is uploaded.",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#F4EFE4",
-  "theme_color": "#F4EFE4",
+  "background_color": "#F2EFE7",
+  "theme_color": "#F2EFE7",
   "lang": "en",
   "icons": [
     {

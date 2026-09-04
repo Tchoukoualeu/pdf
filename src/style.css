@@ -11,52 +11,59 @@
 :root {
   color-scheme: light;
 
+  /* Brand palette: #3368a0 deep blue, #66a3bf soft blue, #c8dfdb mint,
+     #f2efe7 paper. Everything below is derived from these four. */
+
   /* Surfaces */
-  --paper: #f4efe4;
-  --paper-deep: #ebe4d4;
-  --sheet: #fffcf6;
-  --sheet-soft: #faf5ea;
+  --paper: #f2efe7;
+  --paper-deep: #e5e7de;
+  --sheet: #fbfaf5;
+  --sheet-soft: #f5f4ed;
 
   /* A page of paper — stays light in both themes */
-  --doc: #fffdf8;
-  --doc-line: #ddd5c4;
-  --doc-edge: #c9bfa9;
+  --doc: #fdfdfa;
+  --doc-line: #ccdcd9;
+  --doc-edge: #a9c4c0;
+  --doc-head: #3c5a68;
 
   /* Ink */
-  --ink: #1c1914;
-  --ink-soft: #5d574c;
-  --ink-faint: #6f6759;
+  --ink: #14242f;
+  --ink-soft: #46606f;
+  --ink-faint: #526a77;
 
   /* Lines */
-  --rule: #ddd5c5;
-  --rule-strong: #cbc0aa;
+  --rule: #d6ded9;
+  --rule-strong: #b6cac6;
 
   /* Accent */
-  --mark: #c45c26;
-  --mark-deep: #9d3f14;
-  --mark-tint: #f8e9dc;
+  --mark: #3368a0;
+  --mark-soft: #66a3bf;
+  --mark-deep: #27527f;
+  --mark-tint: #c8dfdb;
 
   /* Accent surfaces that carry text (kept at AA contrast) */
-  --accent-bg: #b8501f;
-  --accent-bg-hover: #9d3f14;
-  --accent-fg: #fffaf4;
+  --accent-bg: #3368a0;
+  --accent-bg-hover: #27527f;
+  --accent-fg: #f7fbfd;
 
   /* Feedback */
-  --good: #3d6b47;
-  --good-tint: #e7efe5;
+  --good: #1f5c54;
+  --good-tint: #dcece8;
+  --danger: #a2423a;
+  --danger-tint: #f6e6e2;
 
   /* Atmosphere */
-  --glow-a: #fff8ea;
-  --glow-b: #ead9c4;
+  --glow-a: #fbfaf3;
+  --glow-b: #d5e7e4;
   --grain-opacity: 0.14;
   --grain-filter: none;
 
   /* Elevation */
-  --shadow-xs: 0 1px 2px rgba(28, 25, 20, 0.06);
-  --shadow-sm: 0 2px 6px -2px rgba(28, 25, 20, 0.12);
-  --shadow-md: 0 12px 24px -14px rgba(28, 25, 20, 0.28);
-  --shadow-lg: 0 24px 50px -28px rgba(28, 25, 20, 0.42);
-  --shadow-xl: 0 40px 80px -40px rgba(28, 25, 20, 0.5);
+  --shadow-xs: 0 1px 2px rgba(20, 36, 47, 0.06);
+  --shadow-sm: 0 2px 6px -2px rgba(20, 36, 47, 0.12);
+  --shadow-md: 0 12px 24px -14px rgba(20, 36, 47, 0.26);
+  --shadow-lg: 0 24px 50px -28px rgba(20, 36, 47, 0.4);
+  --shadow-xl: 0 40px 80px -40px rgba(20, 36, 47, 0.48);
 
   /* Radii */
   --r-xs: 6px;
@@ -97,35 +104,39 @@
   :root {
     color-scheme: dark;
 
-    --paper: #16130f;
-    --paper-deep: #1e1a15;
-    --sheet: #211d17;
-    --sheet-soft: #1a1712;
+    --paper: #0f1a23;
+    --paper-deep: #16232e;
+    --sheet: #182734;
+    --sheet-soft: #131f29;
 
-    --doc: #e9e2d3;
-    --doc-line: #bfb5a1;
-    --doc-edge: #8d8474;
+    --doc: #e4ece9;
+    --doc-line: #b3c6c3;
+    --doc-edge: #84a09c;
+    --doc-head: #48626d;
 
-    --ink: #f6f1e5;
-    --ink-soft: #b9ae9b;
-    --ink-faint: #968c7c;
+    --ink: #edf3f2;
+    --ink-soft: #a7bdc4;
+    --ink-faint: #8ba1ab;
 
-    --rule: #342f26;
-    --rule-strong: #4a4336;
+    --rule: #24343f;
+    --rule-strong: #3a4f5b;
 
-    --mark: #d9743c;
-    --mark-deep: #f0a271;
-    --mark-tint: #33221a;
+    --mark: #66a3bf;
+    --mark-soft: #66a3bf;
+    --mark-deep: #9fcada;
+    --mark-tint: #16333f;
 
-    --accent-bg: #dd7a41;
-    --accent-bg-hover: #eb8d55;
-    --accent-fg: #1a1410;
+    --accent-bg: #66a3bf;
+    --accent-bg-hover: #86bad2;
+    --accent-fg: #0d1720;
 
-    --good: #8cc196;
-    --good-tint: #1d2a21;
+    --good: #7fc9b8;
+    --good-tint: #10312c;
+    --danger: #f0a79b;
+    --danger-tint: #33201d;
 
-    --glow-a: #2c2318;
-    --glow-b: #221c26;
+    --glow-a: #16283a;
+    --glow-b: #12262c;
     --grain-opacity: 0.05;
     --grain-filter: invert(1);
 
@@ -411,8 +422,8 @@ p {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--good);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent);
+  background: var(--mark);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mark-soft) 32%, transparent);
 }
 
 .app {
@@ -594,8 +605,8 @@ p {
   height: 1.35em;
   flex: none;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--good) 16%, transparent);
-  color: var(--good);
+  background: var(--mark-tint);
+  color: var(--mark-deep);
 }
 
 .trust-icon::before {
@@ -717,7 +728,7 @@ p {
 }
 
 .drop-doc i:first-child {
-  background: color-mix(in srgb, #1c1914 55%, var(--doc));
+  background: var(--doc-head);
   width: 70%;
 }
 
@@ -864,9 +875,9 @@ p {
 }
 
 .status[data-kind="error"] {
-  border-color: color-mix(in srgb, var(--mark) 55%, var(--rule));
-  background: var(--mark-tint);
-  color: var(--mark-deep);
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--rule));
+  background: var(--danger-tint);
+  color: var(--danger);
   font-weight: 500;
 }
 
