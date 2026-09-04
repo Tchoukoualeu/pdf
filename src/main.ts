@@ -43,12 +43,20 @@ fileInput.addEventListener("change", () => {
   if (file) void handleFile(file);
 });
 
+dropzone.addEventListener("dragenter", (event) => {
+  event.preventDefault();
+  dropzone.classList.add("is-over");
+});
+
 dropzone.addEventListener("dragover", (event) => {
   event.preventDefault();
   dropzone.classList.add("is-over");
 });
 
-dropzone.addEventListener("dragleave", () => {
+dropzone.addEventListener("dragleave", (event) => {
+  // Ignore the dragleave that fires when moving between child elements.
+  const next = event.relatedTarget;
+  if (next instanceof Node && dropzone.contains(next)) return;
   dropzone.classList.remove("is-over");
 });
 
@@ -96,7 +104,12 @@ async function handleFile(file: File): Promise<void> {
 
     state = { fileName: file.name, pages };
     renderResults();
-    showStatus("", "idle");
+    showStatus(
+      pages.length === 1
+        ? "Done. This PDF has 1 page, so you get 1 file."
+        : `Done. Split into ${pages.length} separate PDF files.`,
+      "done",
+    );
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Could not read that PDF.";
@@ -121,10 +134,11 @@ function renderResults(): void {
 
   pageGrid.replaceChildren();
 
-  for (const page of pages) {
+  for (const [index, page] of pages.entries()) {
     const name = pageFileName(fileName, page.pageNumber, pages.length);
     const item = document.createElement("li");
     item.className = "page-card";
+    item.style.setProperty("--i", String(Math.min(index, 12)));
 
     const preview = document.createElement("div");
     preview.className = "page-preview";
@@ -160,7 +174,9 @@ function renderResults(): void {
   resultsEl.hidden = false;
 }
 
-function showStatus(message: string, kind: "idle" | "busy" | "error"): void {
+type StatusKind = "idle" | "busy" | "error" | "done";
+
+function showStatus(message: string, kind: StatusKind): void {
   if (!message) {
     statusEl.hidden = true;
     statusEl.textContent = "";

@@ -12,8 +12,9 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="author" content="Split PDF in 2" />
     <meta name="application-name" content="Split PDF in 2" />
-    <meta name="theme-color" content="#F4EFE4" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4EFE4" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16130F" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href="https://splitpdfin2.com/" />
     <link rel="alternate" hreflang="en" href="https://splitpdfin2.com/" />
@@ -202,15 +203,35 @@
   <body>
     <a class="skip-link" href="#splitter">Skip to PDF splitter</a>
     <div class="grain" aria-hidden="true"></div>
-    <div class="app">
-      <header class="top">
+    <header class="site-header">
+      <div class="site-header-inner">
         <a class="wordmark" href="./">
-          <span class="wordmark-mark" aria-hidden="true"></span>
-          Split PDF in <span class="wordmark-two">2</span>
+          <svg
+            class="wordmark-mark"
+            viewBox="0 0 28 28"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <rect class="mark-shade" x="3" y="3" width="14" height="19" rx="2.5" />
+            <rect class="mark-sheet" x="10" y="6" width="14" height="19" rx="2.5" />
+            <path class="mark-lines" d="M13.5 12h7M13.5 15.5h7M13.5 19h4" />
+          </svg>
+          <span>Split PDF in <span class="wordmark-two">2</span></span>
         </a>
-        <p class="top-note">Split a PDF into 2 files online free. Files never leave this device.</p>
-      </header>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#splitter" data-optional>Splitter</a>
+          <a href="#how">How it works</a>
+          <a href="#why" data-optional>Privacy</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <p class="badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Files never leave this device
+        </p>
+      </div>
+    </header>
 
+    <div class="app">
       <main>
         <section class="hero" aria-labelledby="page-title">
           <p class="eyebrow">splitpdfin2.com</p>
@@ -220,6 +241,20 @@
             page becomes one PDF — so a 2-page document becomes 2 files.
             Splitting runs in your browser, so nothing is uploaded.
           </p>
+          <ul class="trust">
+            <li>
+              <span class="trust-icon" aria-hidden="true"></span>
+              No upload, no server
+            </li>
+            <li>
+              <span class="trust-icon" aria-hidden="true"></span>
+              No account or signup
+            </li>
+            <li>
+              <span class="trust-icon" aria-hidden="true"></span>
+              Free, with no watermark
+            </li>
+          </ul>
         </section>
 
         <section id="splitter" class="stage" aria-labelledby="upload-title">
@@ -233,23 +268,32 @@
               accept="application/pdf,.pdf"
               hidden
             />
-            <div class="sheet" aria-hidden="true">
-              <span class="sheet-rule"></span>
-              <span class="sheet-rule"></span>
-              <span class="sheet-rule"></span>
+            <div class="drop-art" aria-hidden="true">
+              <span class="drop-doc drop-doc-a"><i></i><i></i><i></i></span>
+              <span class="drop-doc drop-doc-b"><i></i><i></i><i></i></span>
+              <span class="drop-doc drop-doc-src"><i></i><i></i><i></i><i></i></span>
             </div>
             <div class="drop-copy">
               <p class="drop-title">Drop a PDF here</p>
-              <p class="drop-sub">or click to choose a file to split into 2 files</p>
+              <p class="drop-sub">
+                or click to choose a file to split into 2 files
+              </p>
+              <span class="drop-cta" aria-hidden="true">Choose a PDF</span>
             </div>
+            <ul class="drop-meta" aria-hidden="true">
+              <li>PDF only</li>
+              <li>No size limit</li>
+              <li>Nothing is uploaded</li>
+            </ul>
           </div>
           <p id="sample-row" class="sample-row">
+            No file handy?
             <button type="button" id="try-sample" class="text-link">
               Try a 3-page sample PDF
             </button>
           </p>
 
-          <div id="status" class="status" hidden></div>
+          <div id="status" class="status" role="status" aria-live="polite" hidden></div>
 
           <div id="results" class="results" hidden>
             <div class="results-bar">
@@ -270,8 +314,14 @@
           </div>
         </section>
 
-        <section id="how" class="prose" aria-labelledby="how-title">
-          <h2 id="how-title">How to split a PDF into 2 files</h2>
+        <section id="how" class="section" aria-labelledby="how-title">
+          <div class="section-head">
+            <p class="eyebrow">How it works</p>
+            <h2 id="how-title">How to split a PDF into 2 files</h2>
+            <p>
+              Three steps, about a minute, and no software to install.
+            </p>
+          </div>
           <ol class="steps">
             <li>
               <h3>Add your PDF</h3>
@@ -297,80 +347,144 @@
           </ol>
         </section>
 
-        <section id="why" class="prose" aria-labelledby="why-title">
-          <h2 id="why-title">A private way to split a PDF into 2 files</h2>
-          <p>
-            Many online PDF tools upload your document to a server. Split PDF
-            in 2 splits PDFs locally in the browser, so invoices, contracts,
-            and scans stay on your computer.
-          </p>
+        <section id="why" class="section" aria-labelledby="why-title">
+          <div class="section-head">
+            <p class="eyebrow">Privacy first</p>
+            <h2 id="why-title">A private way to split a PDF into 2 files</h2>
+            <p>
+              Many online PDF tools upload your document to a server. Split PDF
+              in 2 splits PDFs locally in the browser, so invoices, contracts,
+              and scans stay on your computer.
+            </p>
+          </div>
           <ul class="benefits">
             <li>
-              <strong>Two pages, two files.</strong> Split a PDF into 2 files
-              without a desktop app — or split longer PDFs the same way, one
-              page per file.
+              <span class="benefit-icon" data-icon="split" aria-hidden="true"></span>
+              <h3>Two pages, two files</h3>
+              <p>
+                Split a PDF into 2 files without a desktop app — or split longer
+                PDFs the same way, one page per file.
+              </p>
             </li>
             <li>
-              <strong>No upload.</strong> The file is processed on your device.
+              <span class="benefit-icon" data-icon="lock" aria-hidden="true"></span>
+              <h3>No upload</h3>
+              <p>
+                The file is processed on your device. It is never sent to a
+                server, so nothing is stored or scanned.
+              </p>
             </li>
             <li>
-              <strong>Free to use.</strong> Split a PDF into 2 files and
-              download the pages with no signup.
+              <span class="benefit-icon" data-icon="free" aria-hidden="true"></span>
+              <h3>Free to use</h3>
+              <p>
+                Split a PDF into 2 files and download the pages with no signup,
+                no watermark, and no page limit.
+              </p>
             </li>
           </ul>
         </section>
 
-        <section id="faq" class="prose faq" aria-labelledby="faq-title">
-          <h2 id="faq-title">PDF splitter FAQ</h2>
-          <div>
-            <h3>How do I split a PDF into 2 files?</h3>
-            <p>
-              Drop a 2-page PDF onto Split PDF in 2 or click to choose a file.
-              Each page becomes its own PDF, so you get 2 files you can download
-              separately or as a ZIP.
-            </p>
+        <section id="faq" class="section" aria-labelledby="faq-title">
+          <div class="section-head">
+            <p class="eyebrow">Questions</p>
+            <h2 id="faq-title">PDF splitter FAQ</h2>
           </div>
-          <div>
-            <h3>Can I split a PDF online free?</h3>
-            <p>
-              Yes. Split PDF in 2 lets you split a PDF into 2 files online free,
-              with no account, watermark, or signup.
-            </p>
-          </div>
-          <div>
-            <h3>Are my PDF files uploaded?</h3>
-            <p>
-              No. Splitting happens in your browser. Files are not sent to a
-              server.
-            </p>
-          </div>
-          <div>
-            <h3>What if my PDF has more than 2 pages?</h3>
-            <p>
-              You still get one PDF per page. A 3-page document becomes 3 files,
-              a 10-page document becomes 10 files, and so on.
-            </p>
-          </div>
-          <div>
-            <h3>Can I download every page at once?</h3>
-            <p>
-              Yes. After the PDF is split, use Download all to save every page
-              in a single ZIP file.
-            </p>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>
+                <h3>How do I split a PDF into 2 files?</h3>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </summary>
+              <p>
+                Drop a 2-page PDF onto Split PDF in 2 or click to choose a file.
+                Each page becomes its own PDF, so you get 2 files you can
+                download separately or as a ZIP.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>
+                <h3>Can I split a PDF online free?</h3>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </summary>
+              <p>
+                Yes. Split PDF in 2 lets you split a PDF into 2 files online
+                free, with no account, watermark, or signup.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>
+                <h3>Are my PDF files uploaded?</h3>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </summary>
+              <p>
+                No. Splitting happens in your browser. Files are not sent to a
+                server.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>
+                <h3>What if my PDF has more than 2 pages?</h3>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </summary>
+              <p>
+                You still get one PDF per page. A 3-page document becomes 3
+                files, a 10-page document becomes 10 files, and so on.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>
+                <h3>Can I download every page at once?</h3>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </summary>
+              <p>
+                Yes. After the PDF is split, use Download all to save every page
+                in a single ZIP file.
+              </p>
+            </details>
           </div>
         </section>
       </main>
 
       <footer class="foot">
-        <p>
-          Split PDF in 2 is a free in-browser PDF splitter. Split a PDF into 2
-          files without uploading it.
-        </p>
-        <nav class="foot-nav" aria-label="On this page">
-          <a href="#splitter">Split a PDF</a>
-          <a href="#how">How it works</a>
-          <a href="#faq">FAQ</a>
-        </nav>
+        <div class="foot-top">
+          <div class="foot-brand">
+            <a class="wordmark" href="./">
+              <svg
+                class="wordmark-mark"
+                viewBox="0 0 28 28"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect class="mark-shade" x="3" y="3" width="14" height="19" rx="2.5" />
+                <rect class="mark-sheet" x="10" y="6" width="14" height="19" rx="2.5" />
+                <path class="mark-lines" d="M13.5 12h7M13.5 15.5h7M13.5 19h4" />
+              </svg>
+              <span>Split PDF in <span class="wordmark-two">2</span></span>
+            </a>
+            <p>
+              Split PDF in 2 is a free in-browser PDF splitter. Split a PDF into
+              2 files without uploading it — the document stays on your device
+              from start to finish.
+            </p>
+          </div>
+          <nav class="foot-nav" aria-label="On this page">
+            <div class="foot-col">
+              <h2>Tool</h2>
+              <a href="#splitter">Split a PDF</a>
+              <a href="#how">How it works</a>
+            </div>
+            <div class="foot-col">
+              <h2>Learn</h2>
+              <a href="#why">Privacy</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </nav>
+        </div>
+        <div class="foot-bottom">
+          <p>Split a PDF into 2 files online free — splitpdfin2.com</p>
+          <p>Runs entirely in your browser. No uploads, no tracking.</p>
+        </div>
       </footer>
     </div>
     <noscript>
