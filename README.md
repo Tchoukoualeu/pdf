@@ -18,6 +18,8 @@ Open the local URL Vite prints (usually `http://localhost:5173`).
 1. Drop a PDF onto the page, click to choose one, or try the 3-page sample.
 2. Download a single page, or download all pages as a zip.
 
+To remove a password you already know, open Remove a password, add the PDF, enter the password, and download the same file without it. That runs in the browser too.
+
 ## Scripts
 
 | Command | What it does |

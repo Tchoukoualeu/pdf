@@ -401,8 +401,13 @@ p {
   color: var(--ink);
 }
 
-.site-nav a:hover::after {
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after {
   transform: scaleX(1);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
 }
 
 .badge {
@@ -493,6 +498,17 @@ p {
 .btn:active {
   transform: translateY(0);
   box-shadow: var(--shadow-xs);
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: progress;
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-primary {
@@ -650,6 +666,12 @@ p {
   .landing:has(#dropzone[hidden]) {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  /* The password form stays beside the introduction. */
+  .landing-tool:has(#unlock-form:not([hidden])) {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 1fr);
+    align-items: center;
   }
 }
 
@@ -1164,6 +1186,10 @@ p {
   --icon: var(--icon-spark);
 }
 
+.benefit-icon[data-icon="file"] {
+  --icon: var(--icon-file);
+}
+
 .benefits h3 {
   margin: 0;
   font-size: var(--text-h3);
@@ -1301,6 +1327,11 @@ p {
 .foot-brand p {
   margin: 14px 0 0;
   line-height: 1.6;
+}
+
+.foot-brand p a {
+  color: var(--ink);
+  font-weight: 500;
 }
 
 .foot-nav {
@@ -1498,4 +1529,198 @@ noscript p {
   --icon-split: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='7.5' height='16' rx='1.5'/%3E%3Crect x='13.5' y='4' width='7.5' height='16' rx='1.5'/%3E%3C/svg%3E");
   --icon-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='10' width='16' height='11' rx='2'/%3E%3Cpath d='M8 10V7a4 4 0 0 1 8 0v3'/%3E%3C/svg%3E");
   --icon-spark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z'/%3E%3C/svg%3E");
+}
+
+/* 13. Remove password ------------------------------------------------------ */
+
+.drop-art-lock {
+  width: 140px;
+  height: 156px;
+}
+
+.dropzone-unlock .drop-art::after {
+  display: none;
+}
+
+.drop-lock {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 6px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-left: -21px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.drop-lock::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  -webkit-mask: var(--icon-lock) center / contain no-repeat;
+  mask: var(--icon-lock) center / contain no-repeat;
+}
+
+.dropzone-unlock:hover .drop-doc-src,
+.dropzone-unlock.is-over .drop-doc-src,
+.dropzone-unlock:focus-visible .drop-doc-src {
+  transform: translateY(-6px);
+  opacity: 1;
+}
+
+.dropzone-unlock:hover .drop-lock,
+.dropzone-unlock.is-over .drop-lock,
+.dropzone-unlock:focus-visible .drop-lock {
+  transform: translateY(-4px);
+  background: var(--accent-bg);
+  color: var(--accent-fg);
+}
+
+.unlock-form {
+  display: grid;
+  gap: 16px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--sheet) 0%, var(--sheet-soft) 100%);
+  box-shadow: var(--shadow-lg);
+}
+
+.unlock-form > .btn {
+  width: 100%;
+}
+
+.file-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.file-name {
+  margin: 0;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.file-size {
+  margin: 4px 0 0;
+  color: var(--ink-faint);
+  font-size: var(--text-sm);
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.field-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 4px 6px 4px 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r-md);
+  background: var(--card);
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease);
+}
+
+.field-control:focus-within,
+.field-control:has(input[aria-invalid="true"]) {
+  border-color: var(--mark);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mark) 22%, transparent);
+}
+
+.field-control:has(input[aria-invalid="true"]) {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 22%, transparent);
+}
+
+.field-control input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 10px 0;
+  background: transparent;
+  outline: none;
+}
+
+.field-control input:focus-visible {
+  outline: none;
+}
+
+.field-toggle {
+  flex: none;
+  margin-right: 8px;
+}
+
+.field-hint {
+  margin: -4px 0 0;
+  color: var(--ink-faint);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.btn-download::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  -webkit-mask: var(--icon-download) center / contain no-repeat;
+  mask: var(--icon-download) center / contain no-repeat;
+}
+
+.unlock-ready {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(18px, 3vw, 32px);
+}
+
+.unlock-ready .page-preview {
+  width: min(100%, 180px);
+  flex: none;
+}
+
+.unlock-ready-copy {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  flex: 1;
+  min-width: min(100%, 240px);
+}
+
+.unlock-ready .results-meta {
+  margin: 0 0 8px;
+}
+
+@media (max-width: 680px) {
+  .drop-art-lock {
+    width: 120px;
+    height: 140px;
+  }
+
+  .unlock-ready-copy,
+  .unlock-ready-copy .results-actions,
+  .unlock-ready-copy .btn {
+    width: 100%;
+  }
 }
