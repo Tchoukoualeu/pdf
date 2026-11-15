@@ -1,6 +1,10 @@
 import { writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
-import { SITE_URL } from "./seo.config";
+import { SITE_URL, UNLOCK_PATH } from "./seo.config";
+
+const root = dirname(fileURLToPath(import.meta.url));
 
 const origin = SITE_URL.replace(/\/$/, "");
 
@@ -20,6 +24,12 @@ writeFileSync(
     "    <changefreq>weekly</changefreq>",
     "    <priority>1.0</priority>",
     "  </url>",
+    "  <url>",
+    `    <loc>${origin}${UNLOCK_PATH}</loc>`,
+    `    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>`,
+    "    <changefreq>weekly</changefreq>",
+    "    <priority>0.8</priority>",
+    "  </url>",
     "</urlset>",
     "",
   ].join("\n"),
@@ -27,6 +37,17 @@ writeFileSync(
 
 export default defineConfig({
   base: "/",
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(root, "index.html"),
+        unlock: resolve(root, "remove-password/index.html"),
+      },
+    },
+  },
+  optimizeDeps: {
+    exclude: ["@mssio/qpdf-wasm"],
+  },
   test: {
     environment: "node",
   },
